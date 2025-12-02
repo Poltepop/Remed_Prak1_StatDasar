@@ -13,9 +13,7 @@ df
 
 #bagian A: menampilkan daftar item yang stok nya habis
 #tetapi harga nya tidak sama dengan harga stok maksimum
-stok_kosong <- df[df$stok == 0, ]
-harga_tidak_maksimum <- stok_kosong[stok_kosong$harga != max(df$harga), ]
-harga_tidak_maksimum
+df[df$stok == 0 & df$harga != max(df$harga), ]
 
 #bagian B: Tambahkan kolom baru lebel harga
 df$labelHarga <- ifelse(df$harga > median(df$harga), "Premium", "Reguler")
